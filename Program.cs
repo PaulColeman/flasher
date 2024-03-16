@@ -13,7 +13,7 @@ namespace flasher
                 return -1;
             }
 
-            if (File.Exists(file)) 
+            if (!File.Exists(file)) 
             {
                 Console.WriteLine($"Can't find {file}");
                 return -1;
