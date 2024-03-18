@@ -129,8 +129,6 @@ namespace flasher
                     elAnswer.src = imageList[i][1];
 
                     start.focus();
-
-                    console.log(`Start value: ${imageListStart}, End: ${endValue}, Range: ${imageRange}, List Len: ${imageList.length}`);
                 }
 
                 go();
@@ -146,12 +144,13 @@ namespace flasher
                             // Move to next question (and hide answer)                     
                             i++;
                             if (i > imageList.length - 1) {
-                                i = 0;
+                                go();
+                                return;
                             }
+
                             console.log(`i: ${i}`);
                             elQuestion.src = imageList[i][0];
                             elAnswer.src = imageList[i][1];
-
 
                             answerClassList.add("hidden-image");
                             phase = "question";

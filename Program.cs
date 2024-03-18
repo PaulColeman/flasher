@@ -40,12 +40,14 @@ namespace flasher
             var base64Images = new List<string>();
             await foreach (var image in images)
             {
+                Console.Write('.');
                 var ms = new MemoryStream();
                 image.Encode(ms, SkiaSharp.SKEncodedImageFormat.Jpeg, 50);
                 var bytes = ms.ToArray();
                 var base64 = Convert.ToBase64String(bytes);
                 base64Images.Add(base64);
             }
+            Console.WriteLine(". Done");
 
             return base64Images;
         }
